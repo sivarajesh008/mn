@@ -1,0 +1,89 @@
+<html>
+<head>
+<link rel="stylesheet" href="v.css" media="screen, projection">
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+</script>
+<p><h1>Survey Form</h1></p>
+
+<style>
+input.ng-invalid {
+    background-color:pink;
+}
+input.ng-valid {
+    background-color:lightgreen;
+}
+</style>
+
+
+<body>
+
+
+<div ng-app="myApp" ng-controller="formCtrl">
+  <form>
+   <p> Name: <input type="text" ng-model="Name" required><br>
+</p>
+<p>Address:
+<input name="myAddress" ng-model="myAddress" required>
+</p>
+<p>Age :<p>
+<input type="radio" ng-model="myVar" value="Age1">Below16 years
+<input type="radio" ng-model="myVar" value="Age2">16-50
+<input type="radio" ng-model="myVar" value="Age3">above 50
+
+<br></br>
+<button ng-click="reset()">RESET</button>
+
+<button ng-click="survey Details = ">Click Me!</button><br>
+
+<input type="checkbox" ng-model="myVar">
+
+
+
+</form>
+
+
+<div ng-switch="myVar">
+<div ng-switch-when="Age1">
+     <h6>Below 16Years</h6>
+     <p>Welcome to a Surey Form.</p>
+  </div>
+
+ <div ng-switch-when="Age2">
+     <h6>16-50</h6>
+     <p>Welcome to a Surey Form.</p>
+  </div>
+
+<div ng-switch-when="Age3">
+     <h6>above50</h6>
+     <p>Welcome to a Surey Form.</p>
+  </div>
+
+     
+ 
+</div>
+<h3>surey Form Details :</h3>
+
+<h3>Name:{{Name}}</h3>
+
+
+<h3>Address:{{myAddress}}</h3>
+  
+<h3>Age:{{Age2}}</h3>
+
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('formCtrl', function($scope) {
+    $scope.Name = "";
+  $scope.count=0;
+
+});
+</script>
+
+</body>
+
+
+</body>
+
+</html>

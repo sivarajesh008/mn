@@ -1,0 +1,20 @@
+<html lang="en" ng-app='MyFirstApp'>
+    <head>
+        <title>My First App</title>
+
+        <!-- angular source -->
+        <script src="https://code.angularjs.org/1.5.3/angular.min.js"></script>
+        
+        <!-- Your custom controller code -->
+        <script src="js/controllers.js"></script>
+    </head>
+    <body>
+        <div ng-controller="MyController as mc">
+            <h1>{{ mc.title }}</h1>
+            <p>{{ mc.description }}</p>
+            <button ng-click="mc.clicked()">
+                Click Me!
+            </button>
+        </div>
+    </body>
+</html>

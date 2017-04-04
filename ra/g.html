@@ -1,0 +1,98 @@
+
+<html>
+<head>
+<link rel="stylesheet" href="s.css" media="screen, projection">
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+</script>
+<p><h1>Survey Form</h1></p>
+
+<style>
+input.ng-invalid {
+    background-color:pink;
+}
+input.ng-valid {
+    background-color:lightgreen;
+}
+</style>
+
+
+<body>
+
+
+<div ng-app="myApp" ng-controller="formCtrl">
+  <form>
+   <p> Name: <input type="text" ng-model="Name" required><br>
+</p>
+<p>Address:
+<input name="myAddress" ng-model="myAddress" required>
+</p>
+<p>Age :
+<input type="radio" ng-model="myVar" value="Age1">Below16 years
+<input type="radio" ng-model="myVar" value="Age2">16-50
+<input type="radio" ng-model="myVar" value="Age3">above 50
+</p>
+<br></br>
+<p><button ng-click="reset()">RESET</button>
+
+<button ng-click="survey Details = reset()">Click Me!</button><br>
+
+<input type="checkbox" ng-model="myVar"><br>
+button:<inputtype="button" value="open popup window" ng-click="OpenPopupWindow()"/>
+
+</p>
+
+<span ng-bind="Message"></span>
+
+</form>
+
+
+<div ng-switch="myVar">
+<div ng-switch-when="Age1">
+     <h6>Below 16Years</h6>
+     <p>Welcome to a Surey Form.</p>
+  </div>
+
+ <div ng-switch-when="Age2">
+     <h6>16-50</h6>
+     <p>Welcome to a Surey Form.</p>
+  </div>
+
+<div ng-switch-when="Age3">
+     <h6>above50</h6>
+     <p>Welcome to a Surey Form.</p>
+  </div>
+
+     
+ 
+</div>
+<h3>surey Form Details :</h3>
+
+<h3>Name:{{Name}}</h3>
+
+
+<h3>Address:{{myAddress}}</h3>
+  
+<h3>Age:{{Age2}}</h3>
+
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('formCtrl', function($scope,$window) {
+    $scope.Name = "";
+  $scope.count=0;
+$scope.ButtonClick = function () {
+            $scope.Message = "Button clicked."
+$scope.OpenPopupWindow = function () {
+                var $popup = $window.open("Popup.htm", "popup", "width=250,height=100,left=10,top=150");
+                $popup.Name = $scope.Name;
+
+});
+</script>
+
+</body>
+
+
+</body>
+
+</html>
